@@ -1,6 +1,5 @@
 package com.automation.school.natal.ioStreaming;
 
-
 import java.io.*;
 import java.util.*;
 
@@ -11,7 +10,7 @@ public class BonusTask {
 
         try (FileReader wordList = new FileReader("src\\inPutFiles\\wordlist[2305843009214056683].txt")) {
             bonusResults = new FileWriter("src\\outPutFiles\\bonusResults.txt", true);
-            writeWordDetails(wordList, "allege", bonusResults);
+            writeWordDetails(wordList, "kinghoods", bonusResults);
         } catch (
                 IOException e) {
             System.out.println("There is an IO exception");

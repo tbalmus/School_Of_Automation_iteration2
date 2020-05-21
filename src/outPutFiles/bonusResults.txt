@@ -1,3 +1,6 @@
 "allege" was found 1 times on lines: 87; 
 "allege" was found 1 times on lines: 87; 
 "allege" was found 1 times on lines: 87; 
+"allege" was found 1 times on lines: 87; 
+"kinghoods" was found 4 times on lines: 35; 49; 59; 78; 
+"kinghoods" was found 4 times on lines: 35; 49; 59; 78; 
