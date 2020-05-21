@@ -9,8 +9,8 @@ public class BonusTask {
 
         FileWriter bonusResults = null;
 
-        try (FileReader wordList = new FileReader("src\\wordlist[2305843009214056683].txt")) {
-            bonusResults = new FileWriter("src\\bonusResults.txt", true);
+        try (FileReader wordList = new FileReader("src\\inPutFiles\\wordlist[2305843009214056683].txt")) {
+            bonusResults = new FileWriter("src\\outPutFiles\\bonusResults.txt", true);
             writeWordDetails(wordList, "allege", bonusResults);
         } catch (
                 IOException e) {

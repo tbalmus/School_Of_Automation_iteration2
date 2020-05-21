@@ -12,8 +12,8 @@ public class IOStreaming {
         String word = "kinghoods";
 
         try {
-            wordList = new FileReader("src\\wordlist[2305843009214056683].txt");
-            results = new FileWriter("src\\results.txt", true);
+            wordList = new FileReader("src\\inPutFiles\\wordlist[2305843009214056683].txt");
+            results = new FileWriter("src\\outPutFiles\\results.txt", true);
             int r = countWordInFile(word, wordList);
             System.out.println(r);
             results.write("\"" + word + "\" was found " + r + " times");

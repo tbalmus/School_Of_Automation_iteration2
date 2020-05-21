@@ -12,9 +12,9 @@ public class NIOStreaming {
         String word = "kinghoods";
 
         try {
-            wordList = Paths.get("src\\wordlist[2305843009214056683].txt");
+            wordList = Paths.get("src\\inPutFiles\\wordlist[2305843009214056683].txt");
             int r = countWordInFile(word, wordList);
-            nioResults = Paths.get("src\\nioResults.txt");
+            nioResults = Paths.get("src\\outPutFiles\\nioResults.txt");
             Files.write(nioResults, ("\"" + word + "\" was found " + r + " times").getBytes());
         } catch (IOException e) {
             System.out.println("An IO Exception has been caught");
