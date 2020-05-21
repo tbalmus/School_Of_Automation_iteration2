@@ -1,4 +1,4 @@
-package com.automation.school.tbalmus.Git_task;
+package com.automation.school.adiogoti;
 
 public class Main {
     public static void main ( String[] args ) {
