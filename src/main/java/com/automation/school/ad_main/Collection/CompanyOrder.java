@@ -1,27 +1,43 @@
 package com.automation.school.ad_main.Collection;
 
+import org.w3c.dom.Node;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicLong;
 
-public class CompanyOrder implements Order{
+public class CompanyOrder implements Order {
 
-
-    private long id; //(generate automatically in constructor )
+    private long companyOrderId;// = new IdGenerator(0).getNextId(); //(generate automatically in constructor )
+    public static long companyCurrentOrderId = 0;
     private LocalDateTime date; //(set as current day directly in constructor)
     private User user;
-    public List<Company> companies;
-    private static int nextUniqueId = 0;
+    public Company company;
+    public List<Item> itemsCompany;
     private int itemCount = 0;
-    Double value;
 
-    // public  User newUser;
-    //public  Item newItem;
-    //get the value of id
     public CompanyOrder() {
+        companyCurrentOrderId++;
         this.date = LocalDateTime.now();
-        this.companies = new ArrayList<>(itemCount);
-        this.value = value;
+        this.itemsCompany = new LinkedList<>();
+    }
+
+    public void CreateOrder(User user, Company company) {
+        this.company = company;
+        this.user = user;
+        this.companyOrderId = new IdGenerator().set(CompanyOrder.companyCurrentOrderId);
+    }
+
+    public double sum(double price) {
+        double[] arr = {price};
+        double total = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            total = total + arr[i];
+        }
+        return total;
     }
 
 
@@ -44,44 +60,23 @@ public class CompanyOrder implements Order{
 
     @Override
     public void registrationUser(User user) {
-
     }
 
     @Override
     public void addItem(Item items) {
+        itemsCompany.add(items);
+     }
 
+
+    @Override
+    public String toString() {
+        return "CompanyOrder{" +
+                " companyOrderId=" + companyOrderId +
+                ", date=" + date +
+                ", user=" + user +
+                ", companies=" + company +
+                ", itemsCompany=" + itemsCompany +
+                ", itemCount=" + itemCount +
+                '}';
     }
-
-    public double sum(double price) {
-        double[] arr = {price};
-        double total = 0;
-
-        for(int i=0; i<arr.length; i++){
-            total = total + arr[i];
-        }
-        return total;
-
-    }
-    public int count(Item item) {
-
-        for(int i=0; i<itemCount; itemCount++){
-            return itemCount;
-        }
-        return itemCount;
-
-    }
-/*
-    List<Item> exampleList = new ArrayList<>();
-    for (int i = 0; i < itemCount; i++) { // Populate list
-        exampleList.add(new Item(price));
-    }
-
-    Double sum = 0d;
-    for (Entry entry : exampleList) { //Sum up values
-        Double.sum(sum, entry.value);
-    }
-
-System.out.println(sum);
-
-*/
 }

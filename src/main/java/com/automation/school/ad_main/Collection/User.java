@@ -1,20 +1,34 @@
 package com.automation.school.ad_main.Collection;
 
+import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class User {
-
-    public long id;
-    String username = null;
+    public long userCurrentId =0;
+    private long userId;
+    private String userName = null;
     public Map<String,Address> addresses; //(i.e. Key= "Home", Value = Address)
 
 
     public User() {
-        this.username = username;
+        userCurrentId++;
+        this.addresses = new HashMap<>();
 
     }
-
-    //map<string, int> m;
-   // addresses<String, Address> m = new addresses<>();
-    //int n = s.length();
+    public void createUser(String userName) {
+        this.userName = userName;
+        this.userId = new IdGenerator().set(userCurrentId);
+    }
+    public void addAddress(String type, Address address) {
+        this.addresses.put(type, address);
+    }
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", userName='" + userName + '\'' +
+                ", addresses=" + addresses +
+                '}';
+    }
 }
