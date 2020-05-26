@@ -3,17 +3,12 @@ package com.automation.school.natal.dataCollections;
 import java.util.*;
 
 abstract public class AbstractUser {
-    private long id;
+    private final long id;
     private final String userName;
 
 
     public AbstractUser(String userName) {
-        do {
-            long rand=new Random().nextLong();
-                if (rand>0)
-                    this.id =rand ;
-        }
-        while (this.id<=0);
+        this.id = RandomIdSetter.setRandId();
         this.userName = userName;
     }
 

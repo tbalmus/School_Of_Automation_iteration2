@@ -3,7 +3,7 @@ package com.automation.school.natal.dataCollections;
 import java.util.*;
 
 public class Company {
-    private long id;
+    private final long id;
     private String companyName;
     private Map<String, Address> addresses;
     private List<Item> basket;

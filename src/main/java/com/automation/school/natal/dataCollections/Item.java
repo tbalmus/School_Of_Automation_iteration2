@@ -3,13 +3,13 @@ package com.automation.school.natal.dataCollections;
 import java.util.Objects;
 
 public class Item {
-    private long id;
+    private final long id;
     private final String title;
     private final ItemType type;
     private double price;
 
     public Item(String title, ItemType type) {
-        this.id=RandomIdSetter.setRandId();
+        this.id = RandomIdSetter.setRandId();
         this.title = title;
         this.type = type;
     }
@@ -48,7 +48,7 @@ public class Item {
         if (this == o) return true;
         if (!(o instanceof Item)) return false;
         Item item = (Item) o;
-        return title.equals(item.title) &&  type.equals(item.type);
+        return title.equals(item.title) && type.equals(item.type);
     }
 
     @Override
