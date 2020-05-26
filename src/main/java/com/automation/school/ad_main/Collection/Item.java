@@ -12,9 +12,9 @@ public class Item {
 
 
     // Create a class constructor for the Item class
-    public Item(long id, String title, Type type) {
+    public Item(long id, String title, Type type,double price) {
         this.id = id;
-        this.title =title;
+        this.title = title;
         this.type = type;
         this.price = price;
 
@@ -30,18 +30,6 @@ public class Item {
                 '}';
     }
 
-/* public static void main(String[] args) {
-
-        // adds 1 at 0 index firstList.add(1, 2);
-
-        Item newItem = new Item(2, "newUser",CLOTHES);
-         List<Item> itemList = new ArrayList<>();
-        itemList.add(1,2);
-        System.out.println(newItem.id);
-        System.out.println(newItem.title);
-        System.out.println(newItem.type );
-
-    }*/
 }
 
 

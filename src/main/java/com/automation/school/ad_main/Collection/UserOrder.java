@@ -2,32 +2,27 @@ package com.automation.school.ad_main.Collection;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicLong;
 
-public class UserOrder  implements Order{
+public class UserOrder implements Order {
 
-    private long id; //(generate automatically in constructor )
+    private Long userOrderId; //(generate automatically in constructor )
+    public static long userCurrentOrderId =0;
     public LocalDateTime date; //(set as current day directly in constructor)
     public User user;
-    public List<Item> items;
+    public List<Item> itemsUser;
     private static int nextUniqueId = 0;
 
 
-    // public  User newUser;
-    //public  Item newItem;
-    //get the value of id
     public UserOrder() {
-        this.id = getId();
+        userCurrentOrderId++;
+
         this.date = LocalDateTime.now();
-        this.items = new ArrayList<>();
-        //this.user = user;
+        this.itemsUser = new LinkedList<>();
     }
 
-    public int getId() {
-        nextUniqueId++;
-        id = nextUniqueId;
-        return (int) id;
-    }
 
     @Override
     public double sum() {
@@ -45,35 +40,26 @@ public class UserOrder  implements Order{
     }
 
     public void registrationUser(User user) {
-        this.user= user;
+        this.userOrderId = new IdGenerator().set(UserOrder.userCurrentOrderId);
+        this.user = user;
 
     }
 
     public void addItem(Item items) {
-
+       this.itemsUser.add(items);
     }
 
     @Override
     public String toString() {
         return "UserOrder{" +
-                "id=" + id +
+                "id=" + userOrderId +
                 ", date=" + date +
                 ", user=" + user +
-                ", items=" + items +
+                ", items=" + itemsUser +
                 '}';
     }
 
-// Create a class constructor for the Order class
-   /* public static void main(String[] args) {
-
-        Order newOrder = new Order(id, newUser, newItem, date);
-        System.out.println(newOrder.id);
-        System.out.println(newOrder.date);
-        System.out.println(newOrder.newUser + " " + newOrder.newItem );*/
-
-//}
-
-    }
+}
 
 
 
