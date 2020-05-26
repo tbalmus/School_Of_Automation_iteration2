@@ -10,7 +10,7 @@ public interface Order {
 
     LocalDateTime date();
 
-    void setStatus(Status status);
+    void setStatus(OrderStatus status);
 
     List<Item> getItems();
 }

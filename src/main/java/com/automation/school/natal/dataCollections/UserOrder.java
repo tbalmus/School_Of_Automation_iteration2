@@ -2,27 +2,21 @@ package com.automation.school.natal.dataCollections;
 
 import java.time.*;
 import java.util.List;
-import java.util.Random;
 
 
 public class UserOrder implements Order {
-    private long id;
+    private final long id;
     private final LocalDateTime date;
     private final User user;
-    private List<Item> items;
-    private Status status;
+    private final List<Item> items;
+    private OrderStatus status;
 
     public UserOrder(User user, List<Item> items) {
-        do {
-            long rand = new Random().nextLong();
-            if (rand > 0)
-                this.id = rand;
-        }
-        while (this.id <= 0);
+        this.id = RandomIdSetter.setRandId();
         this.date = LocalDateTime.now();
         this.user = user;
         this.items = items;
-        this.status = Status.CREATED;
+        this.status = OrderStatus.CREATED;
     }
 
     @Override
@@ -45,11 +39,11 @@ public class UserOrder implements Order {
         return items;
     }
 
-    public Status getStatus() {
+    public OrderStatus getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(OrderStatus status) {
         this.status = status;
     }
 
@@ -71,10 +65,7 @@ public class UserOrder implements Order {
 
     @Override
     public int count() {
-        int count = 0;
-        for (Item item : items)
-            count++;
-        return count;
+               return this.items.size();
     }
 
     public int count(Item item) {

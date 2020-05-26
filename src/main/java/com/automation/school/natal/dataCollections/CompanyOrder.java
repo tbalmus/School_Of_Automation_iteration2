@@ -2,26 +2,20 @@ package com.automation.school.natal.dataCollections;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Random;
 
 public class CompanyOrder implements Order {
-    private long id;
+    private final long id;
     private final LocalDateTime date;
-    private Company company;
+    private final Company company;
     private List<Item> items;
-    private Status status;
+    private OrderStatus status;
 
     public CompanyOrder(Company company, List<Item> items) {
-        do {
-            long rand = new Random().nextLong();
-            if (rand > 0)
-                this.id = rand;
-        }
-        while (this.id <= 0);
+        this.id = RandomIdSetter.setRandId();
         this.date = LocalDateTime.now();
         this.company = company;
         this.items = items;
-        this.status = Status.CREATED;
+        this.status = OrderStatus.CREATED;
     }
 
     public long getId() {
@@ -40,7 +34,7 @@ public class CompanyOrder implements Order {
         this.items = items;
     }
 
-    public Status getStatus() {
+    public OrderStatus getStatus() {
         return status;
     }
 
@@ -71,10 +65,7 @@ public class CompanyOrder implements Order {
 
     @Override
     public int count() {
-        int count = 0;
-        for (Item item : items)
-            count++;
-        return count;
+        return this.items.size();
     }
 
     public int count(Item item) {
@@ -91,7 +82,7 @@ public class CompanyOrder implements Order {
     }
 
     @Override
-    public void setStatus(Status status) {
+    public void setStatus(OrderStatus status) {
         this.status = status;
     }
 }

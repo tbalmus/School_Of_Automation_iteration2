@@ -10,24 +10,24 @@ public class Main {
     public static void main(String[] args) {
         // write your code here
         Set<Item> catalog = new HashSet<>();
-        catalog.add(new Item("Dress", Type.CLOTHES));
-        catalog.add(new Item("T-Shirt", Type.CLOTHES));
-        catalog.add(new Item("Pants", Type.CLOTHES));
-        catalog.add(new Item("Shorts", Type.CLOTHES));
-        catalog.add(new Item("Skirt", Type.CLOTHES));
-        catalog.add(new Item("Cardigan", Type.CLOTHES));
-        catalog.add(new Item("Shirt", Type.CLOTHES));
-        catalog.add(new Item("Scarf", Type.ACCESSORIES));
-        catalog.add(new Item("Gloves", Type.ACCESSORIES));
-        catalog.add(new Item("Hat", Type.ACCESSORIES));
-        catalog.add(new Item("Day Cream", Type.COSMETICS));
-        catalog.add(new Item("Night Cream", Type.COSMETICS));
-        catalog.add(new Item("Eye Cream", Type.COSMETICS));
-        catalog.add(new Item("Perfume", Type.COSMETICS));
-        catalog.add(new Item("Foreo", Type.GADGET));
-        catalog.add(new Item("MiBand", Type.GADGET));
-        catalog.add(new Item("AppleWatch", Type.GADGET));
-        catalog.add(new Item("Sandals", Type.SHOES));
+        catalog.add(new Item("Dress", ItemType.CLOTHES));
+        catalog.add(new Item("T-Shirt", ItemType.CLOTHES));
+        catalog.add(new Item("Pants", ItemType.CLOTHES));
+        catalog.add(new Item("Shorts", ItemType.CLOTHES));
+        catalog.add(new Item("Skirt", ItemType.CLOTHES));
+        catalog.add(new Item("Cardigan", ItemType.CLOTHES));
+        catalog.add(new Item("Shirt", ItemType.CLOTHES));
+        catalog.add(new Item("Scarf", ItemType.ACCESSORIES));
+        catalog.add(new Item("Gloves", ItemType.ACCESSORIES));
+        catalog.add(new Item("Hat", ItemType.ACCESSORIES));
+        catalog.add(new Item("Day Cream", ItemType.COSMETICS));
+        catalog.add(new Item("Night Cream", ItemType.COSMETICS));
+        catalog.add(new Item("Eye Cream", ItemType.COSMETICS));
+        catalog.add(new Item("Perfume", ItemType.COSMETICS));
+        catalog.add(new Item("Foreo", ItemType.GADGET));
+        catalog.add(new Item("MiBand", ItemType.GADGET));
+        catalog.add(new Item("AppleWatch", ItemType.GADGET));
+        catalog.add(new Item("Sandals", ItemType.SHOES));
         List<User> users = new ArrayList<>();
         users.add(new User("Tom Brady"));
         users.add(new User("Emma Stone"));
@@ -37,50 +37,53 @@ public class Main {
         users.add(new User("Scarlett Johansson"));
         users.add(new User("John Travolta"));
         users.add(new User("Tom Hanks"));
-
-        users.get(3).addAddress("Billing", new Address("Moldova", "Chisinau", "Cuza Voda"));
-        users.get(3).addAddress("Shipping", new Address("Moldova", "Orhei", "Vasile Lupu"));
-        users.get(3).addToBasket(pickItem("T-Shirt", Type.CLOTHES, catalog));
-        users.get(3).addToBasket(pickItem("Pants", Type.CLOTHES, catalog));
-        users.get(3).addToBasket(pickItem("AppleWatch", Type.GADGET, catalog));
-
-        users.get(4).addAddress("Billing", new Address("Moldova", "Chisinau", "Alecu Russo"));
-        users.get(4).addAddress("Shipping", new Address("Moldova", "Chisinau", "Alecu Russo"));
-        users.get(4).addToBasket(pickItem("Dress", Type.CLOTHES, catalog));
-        users.get(4).addToBasket(pickItem("Sandals", Type.SHOES, catalog));
-        users.get(4).addToBasket(pickItem("Foreo", Type.GADGET, catalog));
+        User user3 = users.get(3);
+        user3.addAddress("Billing", new Address("Moldova", "Chisinau", "Cuza Voda"));
+        user3.addAddress("Shipping", new Address("Moldova", "Orhei", "Vasile Lupu"));
+        user3.addToBasket(pickItem("T-Shirt", ItemType.CLOTHES, catalog));
+        user3.addToBasket(pickItem("Pants", ItemType.CLOTHES, catalog));
+        user3.addToBasket(pickItem("AppleWatch", ItemType.GADGET, catalog));
+        User user4 = users.get(4);
+        user4.addAddress("Billing", new Address("Moldova", "Chisinau", "Alecu Russo"));
+        user4.addAddress("Shipping", new Address("Moldova", "Chisinau", "Alecu Russo"));
+        user4.addToBasket(pickItem("Dress", ItemType.CLOTHES, catalog));
+        user4.addToBasket(pickItem("Sandals", ItemType.SHOES, catalog));
+        user4.addToBasket(pickItem("Foreo", ItemType.GADGET, catalog));
 
         List<Order> orders = new ArrayList<>();
-        orders.add(new UserOrder(users.get(3), users.get(3).getBasket()));
-        orders.add(new UserOrder(users.get(4), users.get(4).getBasket()));
+        orders.add(new UserOrder(user3, user3.getBasket()));
+        orders.add(new UserOrder(user4, user4.getBasket()));
         Company company1 = new Company("Endava");
-        company1.addToBasket(pickItem("AppleWatch", Type.GADGET, catalog));
+        company1.addToBasket(pickItem("AppleWatch", ItemType.GADGET, catalog));
         orders.add(new CompanyOrder(company1, company1.getBasket()));
         System.out.println(orders);
-        System.out.println(filterOrderByItemType(orders, Type.CLOTHES));
+        System.out.println(filterOrderByItemType(orders, ItemType.CLOTHES));
         System.out.println(filterUsersByCity(users, "Chisinau"));
 
-        AdminUser admin=new AdminUser("Rambo");
-        for (Order o: filterOrderByItemType(orders, Type.CLOTHES))
-        admin.approveOrder(o);
-        System.out.println(filterOrderByItemType(orders, Type.CLOTHES));
-        for (Order or: orders)
-        System.out.println(or.getItems());
-        System.out.println(filterOrderByItemType(orders, Type.SHOES));
-        for (Order o: filterOrderByItemType(orders, Type.SHOES))
+        AdminUser admin = new AdminUser("Rambo");
+        for (Order o : filterOrderByItemType(orders, ItemType.CLOTHES)) {
+            admin.approveOrder(o);
+        }
+        System.out.println(filterOrderByItemType(orders, ItemType.CLOTHES));
+        for (Order or : orders) {
+            System.out.println(or.getItems());
+        }
+        System.out.println(filterOrderByItemType(orders, ItemType.SHOES));
+        for (Order o : filterOrderByItemType(orders, ItemType.SHOES)) {
             admin.rejectOrder(o);
+        }
         System.out.println(orders);
     }
 
-    static Item pickItem(String title, Type type, Set<Item> catalog) {
+    static Item pickItem(String title, ItemType type, Set<Item> catalog) {
         Item pickedItem = null;
         for (Item item : catalog)
-            if (title == item.getTitle() && type == item.getType())
+            if (title.equals(item.getTitle()) && type.equals(item.getType()))
                 pickedItem = item;
         return pickedItem;
     }
 
-    static List<Order> filterOrderByItemType(List<Order> orders, Type type) {
+    static List<Order> filterOrderByItemType(List<Order> orders, ItemType type) {
         List<Order> filteredList = new ArrayList<>();
         for (Order o : orders)
             for (Item i : o.getItems())
@@ -95,7 +98,7 @@ public class Main {
         List<User> filteredUsers = new ArrayList<>();
         for (User u : users)
             for (Address a : u.getAddresses().values())
-                if (a.getCity() == city) {
+                if (a.getCity().equals(city)) {
                     filteredUsers.add(u);
                     break;
                 }

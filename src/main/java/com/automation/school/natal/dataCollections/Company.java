@@ -10,12 +10,7 @@ public class Company {
 
 
     public Company(String companyName) {
-        do {
-            long rand=new Random().nextLong();
-            if (rand>0)
-                this.id =rand ;
-        }
-        while (this.id<=0);
+        this.id=RandomIdSetter.setRandId();
         this.companyName = companyName;
         this.addresses = new HashMap<>();
         this.basket = new ArrayList<>();

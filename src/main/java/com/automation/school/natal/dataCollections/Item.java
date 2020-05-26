@@ -1,21 +1,15 @@
 package com.automation.school.natal.dataCollections;
 
 import java.util.Objects;
-import java.util.Random;
 
 public class Item {
     private long id;
     private final String title;
-    private final Type type;
+    private final ItemType type;
     private double price;
 
-    public Item(String title, Type type) {
-        do {
-            long rand=new Random().nextLong();
-            if (rand>0)
-                this.id =rand ;
-        }
-        while (this.id<=0);
+    public Item(String title, ItemType type) {
+        this.id=RandomIdSetter.setRandId();
         this.title = title;
         this.type = type;
     }
@@ -37,7 +31,7 @@ public class Item {
         return title;
     }
 
-    public Type getType() {
+    public ItemType getType() {
         return type;
     }
 

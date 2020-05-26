@@ -1,6 +1,6 @@
 package com.automation.school.natal.dataCollections;
 
-public enum Type {
+public enum ItemType {
     CLOTHES,
     GADGET,
     TOY,

@@ -1,6 +1,6 @@
 package com.automation.school.natal.dataCollections;
 
-public enum Status {
+public enum OrderStatus {
     CREATED,
     REJECTED,
     APPROVED,

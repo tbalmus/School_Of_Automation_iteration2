@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 public class User extends AbstractUser {
-    private Map<String, Address> addresses;
+    private final Map<String, Address> addresses;
     private List<Item> basket;
 
 

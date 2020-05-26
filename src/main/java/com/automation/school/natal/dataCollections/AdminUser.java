@@ -17,10 +17,10 @@ public class AdminUser extends AbstractUser {
     }
 
     public void approveOrder(Order order) {
-        order.setStatus(Status.APPROVED);
+        order.setStatus(OrderStatus.APPROVED);
     }
 
     public void rejectOrder(Order order) {
-        order.setStatus(Status.REJECTED);
+        order.setStatus(OrderStatus.REJECTED);
     }
 }
