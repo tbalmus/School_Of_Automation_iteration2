@@ -1,12 +1,8 @@
 package com.automation.school.ad_main.Collection;
 
-import org.w3c.dom.Node;
-
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 
 public class CompanyOrder implements Order {
 
@@ -30,42 +26,28 @@ public class CompanyOrder implements Order {
         this.companyOrderId = new IdGenerator().set(CompanyOrder.companyCurrentOrderId);
     }
 
+    @Override
     public double sum(double price) {
         double[] arr = {price};
         double total = 0;
 
-        for (int i = 0; i < arr.length; i++) {
+        int i = 0;
+        while (i < arr.length) {
             total = total + arr[i];
+            i++;
         }
         return total;
     }
 
-
-
-
-    @Override
-    public double sum() {
-        return 0;
-    }
-
-    @Override
-    public int count() {
-        return 0;
-    }
-
-    @Override
-    public LocalDateTime date() {
-        return null;
-    }
-
     @Override
     public void registrationUser(User user) {
+
     }
 
     @Override
     public void addItem(Item items) {
-        itemsCompany.add(items);
-     }
+       itemsCompany.add(items);
+    }
 
 
     @Override

@@ -20,9 +20,11 @@ public class Company {
         this.companyId = new IdGenerator().set(Company.companyCurrentId);
         this.company = company;
     }
+
     public void addAddress(String type, Address address) {
         this.addressCompany.put(type, address);
     }
+
     @Override
     public String toString() {
         return "Company{" +

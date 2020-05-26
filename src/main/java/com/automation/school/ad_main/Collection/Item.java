@@ -12,12 +12,11 @@ public class Item {
 
 
     // Create a class constructor for the Item class
-    public Item(long id, String title, Type type,double price) {
+    public Item(long id, String title, Type type, double price) {
         this.id = id;
         this.title = title;
         this.type = type;
         this.price = price;
-
     }
 
     @Override

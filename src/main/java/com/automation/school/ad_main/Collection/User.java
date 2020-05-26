@@ -5,24 +5,25 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class User {
-    public long userCurrentId =0;
+    public long userCurrentId = 0;
     private long userId;
-    private String userName = null;
-    public Map<String,Address> addresses; //(i.e. Key= "Home", Value = Address)
-
+    private String userName;
+    public Map<String, Address> addresses; //(i.e. Key= "Home", Value = Address)
 
     public User() {
         userCurrentId++;
         this.addresses = new HashMap<>();
-
     }
+
     public void createUser(String userName) {
         this.userName = userName;
         this.userId = new IdGenerator().set(userCurrentId);
     }
+
     public void addAddress(String type, Address address) {
         this.addresses.put(type, address);
     }
+
     @Override
     public String toString() {
         return "User{" +
