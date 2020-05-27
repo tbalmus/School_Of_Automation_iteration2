@@ -13,7 +13,7 @@ public class GenericLibrary<T> {
         this.libraryStorage = new ArrayList<>();
     }
 
-    void addAnItem(T element) {
+    public void addAnItem(T element) {
         libraryStorage.add(element);
     }
 
