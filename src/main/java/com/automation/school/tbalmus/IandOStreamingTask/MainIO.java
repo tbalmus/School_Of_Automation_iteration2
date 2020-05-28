@@ -3,7 +3,7 @@ package com.automation.school.tbalmus.IandOStreamingTask;
 import java.io.*;
 import java.util.ArrayList;
 
-public class Main {
+public class MainIO {
 
     public static void main ( String[] args ) throws IOException {
 // declare files
@@ -25,12 +25,12 @@ public class Main {
                 countWord++;
                 lineNumberList.add ( lineNumber );
             }
+
         }
 
-        outFile.write ( "The word " + myWord + " was found " + countWord + " times " + "on lines: " + lineNumberList );
+        outFile.write ( "The word " + myWord + " was found " + countWord + " times on lines: " + lineNumberList );
 
         System.out.println ( lineNumberList );
-
 
         inFile.close ( );
         outFile.close ( );
