@@ -47,7 +47,7 @@ public class Generics {
         npList.add(new Newspaper("Washington Post", LocalDate.parse("2015-01-22"), 28, 150000));
         npList.add(new Newspaper("Washington Post", LocalDate.parse("2017-03-29"), 30, 190000));
 
-        Library<Newspaper> newspapers = new Library<Newspaper>("Newspapers Library", npList);
+        Library<Newspaper> newspapers = new Library<>("Newspapers Library", npList);
         newspapers.storeMedia(newspaper1);
         System.out.println(newspapers.getName() + ":\n" + newspapers.getStorage());
         newspapers.retrieveMedia("TIMES");

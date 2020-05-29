@@ -60,7 +60,7 @@ public class Book extends Media {
         if (!(o instanceof Book)) return false;
         Book book = (Book) o;
         return name.equals(book.name) &&
-                issueDate == book.issueDate &&
+                issueDate.equals(book.issueDate) &&
                 pages == book.pages &&
                 edition == book.edition &&
                 copies == book.copies &&

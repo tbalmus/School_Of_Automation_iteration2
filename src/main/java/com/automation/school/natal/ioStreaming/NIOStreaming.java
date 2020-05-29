@@ -1,7 +1,6 @@
 package com.automation.school.natal.ioStreaming;
 
-import java.io.FileReader;
-import java.io.FileWriter;
+
 import java.io.IOException;
 import java.nio.file.*;
 import java.util.List;

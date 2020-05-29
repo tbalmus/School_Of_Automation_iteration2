@@ -37,7 +37,7 @@ public class Newspaper extends Media {
         if (!(o instanceof Newspaper)) return false;
         Newspaper newspaper = (Newspaper) o;
         return name.equals(newspaper.name) &&
-                issueDate == newspaper.issueDate &&
+                issueDate.equals(newspaper.issueDate) &&
                 pages == newspaper.pages &&
                 copies == newspaper.copies;
     }
