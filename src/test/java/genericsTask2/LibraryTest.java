@@ -1,7 +1,9 @@
 package genericsTask2;
 
 import com.automation.school.natal.genericsTask2.*;
-import org.junit.jupiter.api.*;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
@@ -19,20 +21,19 @@ public class LibraryTest {
     static Library<Media> library;
     static List<Media> storage;
 
-
     static Stream<Media> mediaProvider() {
         return Stream.of(book, newspaper, video);
     }
 
     @BeforeAll
-    static void setup() {
+    public static void setup() {
         library = new Library<>("Test Library");
         storage = library.getStorage();
     }
 
     @ParameterizedTest
-    @Order(1)
-    @MethodSource("mediaProvider")
+    @Order( 1 )
+    @MethodSource( "mediaProvider" )
     public void retrieveMediaTestByName(Media media) {
         library.storeMedia(media);
         library.retrieveMedia(media.getName());
@@ -40,8 +41,8 @@ public class LibraryTest {
     }
 
     @ParameterizedTest
-    @Order(2)
-    @MethodSource("mediaProvider")
+    @Order( 2 )
+    @MethodSource( "mediaProvider" )
     public void retrieveMediaTestByObject(Media media) {
         library.storeMedia(media);
         library.retrieveMedia(media);
@@ -49,8 +50,8 @@ public class LibraryTest {
     }
 
     @ParameterizedTest
-    @Order(3)
-    @MethodSource("mediaProvider")
+    @Order( 3 )
+    @MethodSource( "mediaProvider" )
     public void retrieveAllMediaTest(Media media) {
         library.storeMedia(media);
         library.retrieveMedia(storage);
@@ -58,9 +59,9 @@ public class LibraryTest {
     }
 
     @ParameterizedTest
-    @Order(4)
-    @MethodSource("mediaProvider")
-    void storeBookTest(Media media) {
+    @Order( 4 )
+    @MethodSource( "mediaProvider" )
+    public void storeBookTest(Media media) {
         library.storeMedia(media);
         assertEquals(media, storage.get(storage.size() - 1));
     }
