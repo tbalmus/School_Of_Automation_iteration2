@@ -1,4 +1,4 @@
-package com.automation.school.tbalmus.GenericHomeWork;
+package com.automation.school.tbalmus.generics;
 
 public class Book extends Media {
 
@@ -6,10 +6,19 @@ public class Book extends Media {
     String authorName;
 
 
-    public Book ( int id, String bookTitle , String authorName ) {
+    public Book ( int id, String bookTitle , String authorName, double price ) {
         this.id = id;
         this.bookTitle = bookTitle;
         this.authorName = authorName;
+        this.price = price;
+    }
+
+    public boolean authorBeginsWithCertainLetter ( char letter){
+        char first = this.authorName.charAt (0);
+        if ( first == letter){
+            return true;
+        }
+            return false;
     }
 
     public static void add ( Book addNewBook ) {
@@ -21,6 +30,7 @@ public class Book extends Media {
                 "bookTitle='" + bookTitle + '\'' +
                 ", authorName='" + authorName + '\'' +
                 ", id=" + id +
-                '}' + "\n";
+                ", price=" + price +
+                '}';
     }
 }

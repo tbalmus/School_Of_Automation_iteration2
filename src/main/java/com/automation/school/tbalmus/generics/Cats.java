@@ -1,4 +1,4 @@
-package com.automation.school.tbalmus.GenericHomeWork;
+package com.automation.school.tbalmus.generics;
 
 public class Cats {
     public  static <E> void printArray ( E[] arrayValues ){

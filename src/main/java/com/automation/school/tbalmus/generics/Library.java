@@ -1,4 +1,4 @@
-package com.automation.school.tbalmus.GenericHomeWork;
+package com.automation.school.tbalmus.generics;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,18 +13,22 @@ public class Library< T > {
     }
 
     public void setName ( String name ) {
+
         this.name = name;
     }
 
     public void setStorage ( List < T > storage ) {
+
         this.storage = storage;
     }
 
     public String getName () {
+
         return name;
     }
 
     public List < T > getStorage () {
+
         return storage;
     }
 
@@ -33,9 +37,10 @@ public class Library< T > {
             System.out.println ( abc );
         }
     }
-    public void addItem(T item){
-        storage.add(item);
-     }
+
+    public void addItem ( T item ) {
+        storage.add ( item );
+    }
 
     @Override
     public String toString () {
@@ -44,7 +49,5 @@ public class Library< T > {
                 ", storage=" + storage +
                 '}';
     }
-
-
 }
 
