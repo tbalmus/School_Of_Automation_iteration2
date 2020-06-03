@@ -6,6 +6,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -20,6 +22,7 @@ public class LibraryTest {
     static final Media video = new Video("Java Tutorial", LocalDate.parse("2017-03-14"), 900);
     static Library<Media> library;
     static List<Media> storage;
+    static Logger log = LoggerFactory.getLogger(LibraryTest.class);
 
     static Stream<Media> mediaProvider() {
         return Stream.of(book, newspaper, video);

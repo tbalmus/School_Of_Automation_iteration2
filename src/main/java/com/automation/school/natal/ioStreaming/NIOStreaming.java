@@ -12,8 +12,8 @@ public class NIOStreaming {
         String word = "BCE";
 
         try {
-            wordList = Paths.get("src\\inPutFiles\\wordlist[2305843009214056683].txt");
-            nioResults = Paths.get("src\\outPutFiles\\nioResults.txt");
+            wordList = Paths.get("src\\main\\resources\\inPutFiles\\wordlist[2305843009214056683].txt");
+            nioResults = Paths.get("src\\main\\resources\\outPutFiles\\nioResults.txt");
             writeWordRepetitions(wordList,word,nioResults);
         } catch (IOException e) {
             System.out.println("An IO Exception has been caught");

@@ -10,8 +10,8 @@ public class IOStreaming {
     public static void main(String[] args) throws IOException {
         FileWriter results = null;
         String word = "kinghoods";
-        try (FileReader wordList = new FileReader("src\\inPutFiles\\wordlist[2305843009214056683].txt")) {
-            results = new FileWriter("src\\outPutFiles\\results.txt", true);
+        try (FileReader wordList = new FileReader("src\\main\\resources\\inPutFiles\\wordlist[2305843009214056683].txt")) {
+            results = new FileWriter("src\\main\\resources\\outPutFiles\\results.txt", true);
             writeWordRepetitions(wordList, word, results);
         } catch (IOException e) {
             System.out.println("There is an IO exception");

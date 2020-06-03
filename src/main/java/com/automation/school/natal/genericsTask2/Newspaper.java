@@ -1,22 +1,28 @@
 package com.automation.school.natal.genericsTask2;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
 public class Newspaper extends Media {
     private final int pages;
     private int copies;
+    private final Logger log = LoggerFactory.getLogger(Newspaper.class);
 
     public Newspaper(String name, int pages, int copies) {
         super(name);
         this.pages = pages;
         this.copies = copies;
+        log.info("New newspaper is created with current issue date");
     }
 
     public Newspaper(String name, LocalDate issueDate, int pages, int copies) {
         super(name, issueDate);
         this.pages = pages;
         this.copies = copies;
+        log.info("New newspaper is created with custom issue date");
     }
 
     public int getPages() {
@@ -53,9 +59,8 @@ public class Newspaper extends Media {
                 ", issueDate: " + issueDate;
     }
 
-
     @Override
     public void issue() {
-        System.out.println("Newspaper was printed");
+        log.info("Newspaper was printed");
     }
 }

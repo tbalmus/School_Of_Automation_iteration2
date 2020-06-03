@@ -1,19 +1,25 @@
 package com.automation.school.natal.genericsTask2;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
 public class Video extends Media {
     private final double lengthMinutes;
+    private final Logger log= LoggerFactory.getLogger(Video.class);
 
     public Video(String name, double lengthMinutes) {
         super(name);
         this.lengthMinutes = lengthMinutes;
+        log.info("New video is created with current issue date");
     }
 
     public Video(String name, LocalDate issueDate, double lengthMinutes) {
         super(name, issueDate);
         this.lengthMinutes = lengthMinutes;
+        log.info("New video is created with custom issue date");
     }
 
     public double getLengthMinutes() {
@@ -45,7 +51,7 @@ public class Video extends Media {
 
     @Override
     public void issue() {
-        System.out.println("Video was shown on TV");
+        log.info("Video was shown on TV");
 
     }
 }

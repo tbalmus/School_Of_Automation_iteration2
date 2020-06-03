@@ -8,8 +8,8 @@ public class BonusTask {
 
         FileWriter bonusResults = null;
 
-        try (FileReader wordList = new FileReader("src\\inPutFiles\\wordlist[2305843009214056683].txt")) {
-            bonusResults = new FileWriter("src\\outPutFiles\\bonusResults.txt", true);
+        try (FileReader wordList = new FileReader("src\\main\\resources\\inPutFiles\\wordlist[2305843009214056683].txt")) {
+            bonusResults = new FileWriter("src\\main\\resources\\outPutFiles\\bonusResults.txt", true);
             writeWordDetails(wordList, "kinghoods", bonusResults);
         } catch (
                 IOException e) {

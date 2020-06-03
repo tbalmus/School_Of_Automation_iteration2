@@ -13,9 +13,9 @@ public class BonusTask2 {
         FileWriter bonusAllResults = null;
         Map<String, Details> map = null;
 
-        try (FileReader wordList = new FileReader("src\\inPutFiles\\wordlist[2305843009214056683].txt")) {
-            bonusAllResults = new FileWriter("src\\outPutFiles\\bonus2AllResults.txt", true);
-            bonusResults = new FileWriter("src\\outPutFiles\\bonus2Results.txt", true);
+        try (FileReader wordList = new FileReader("src\\main\\resources\\inPutFiles\\wordlist[2305843009214056683].txt")) {
+            bonusAllResults = new FileWriter("src\\main\\resources\\outPutFiles\\bonus2AllResults.txt", true);
+            bonusResults = new FileWriter("src\\main\\resources\\outPutFiles\\bonus2Results.txt", true);
             map = fillMap(wordList);
             writeAllWordsDetails(map, bonusAllResults);
             writeWordDetails(map, "BCE", bonusResults);

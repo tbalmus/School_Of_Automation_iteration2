@@ -1,5 +1,8 @@
 package com.automation.school.natal.genericsTask2;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -8,12 +11,14 @@ public class Book extends Media {
     private final String author;
     private final int edition;
     private int copies;
+    private final Logger log= LoggerFactory.getLogger(Book.class);
 
     public Book(String name, int pages, String author, int edition) {
         super(name);
         this.pages = pages;
         this.author = author;
         this.edition = edition;
+        log.info("New book is created with current issue date");
     }
 
     public Book(String name, LocalDate issueDate, int pages, String author, int edition) {
@@ -21,6 +26,7 @@ public class Book extends Media {
         this.pages = pages;
         this.author = author;
         this.edition = edition;
+        log.info("New book is created with custom issue date");
     }
 
     public int getPages() {
@@ -75,7 +81,7 @@ public class Book extends Media {
 
     @Override
     public void issue() {
-        System.out.println("Book is issued");
+        log.info("Book is issued");
 
     }
 }
