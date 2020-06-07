@@ -11,8 +11,6 @@ public class BooksLibrary {
         this.booksLibrary = new ArrayList<>();
     }
 
-//    public BooksLibrary()
-
  public void addAnItem (Book b) {
     booksLibrary.add(b);
     System.out.println(b.name + " was successfully added to the storage  booksLibrary");
