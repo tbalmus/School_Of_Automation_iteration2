@@ -1,11 +1,14 @@
 @Run
 @Before
+
+@After
 Feature: User able to create account and login in site
 
 
      Background:
      Given homepage is loaded
-  @After
+
+
   Scenario: create an account
     And account link menu is clicked
     And my-account page is loaded

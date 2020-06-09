@@ -1,4 +1,5 @@
-package com.demoqa.shop;
+package test_site_test;
+
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,9 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 /*
 @BeforeClass
 public static void beforeSuiteMethod() throws Exception {
-
         // browser selection is hard-coded
-
         System.err.println("os: " + osName);
         if (osName.startsWith("windows")) {
         driver = BrowserDriver.initialize(browser);
@@ -27,36 +26,32 @@ public static void beforeSuiteMethod() throws Exception {
         actions = new Actions(driver);
         }
         */
-    public class FirstPage {
+public class GetPage {
 
-        private WebDriver driver;
+    private WebDriver driver;
 
-        public FirstPage(WebDriver driver){
-            PageFactory.initElements(driver, this);
-            this.driver = driver;
-        }
-
-        public  WebElement find_element_by_xpat(String  xpath) {
-
-            return this.driver.findElement(By.xpath(xpath)) ;
-
-        }
-
-          public void makeClick (String element){
-              WebDriverWait wait = new WebDriverWait(FirstPage.this.driver, 10);
-              WebElement el =  wait.until(ExpectedConditions.elementToBeClickable(By.xpath(element)));
-               el.click();
-
-
-          }
-
-        public void waiter(){
-
-            WebDriverWait waitForOne = new WebDriverWait(driver, 10000);
-            waitForOne.until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html[1]/body[1]")));
-        }
+    public GetPage(WebDriver driver){
+        PageFactory.initElements(driver, this);
+        this.driver = driver;
     }
 
+    public  WebElement find_element_by_xpat(String  xpath) {
+
+        return this.driver.findElement(By.xpath(xpath)) ;
+
+    }
+
+    public void makeClick (String element){
+        WebDriverWait wait = new WebDriverWait(GetPage.this.driver, 10);
+        WebElement el =  wait.until(ExpectedConditions.elementToBeClickable(By.xpath(element)));
+        el.click();
 
 
+    }
 
+    public void waiter(){
+
+        WebDriverWait waitForOne = new WebDriverWait(driver, 10000);
+        waitForOne.until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html[1]/body[1]")));
+    }
+}

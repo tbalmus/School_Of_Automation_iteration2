@@ -1,7 +1,6 @@
 package test_site_test;
 
 import com.demoqa.shop.CreateNewUser;
-import com.demoqa.shop.FirstPage;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -38,7 +37,7 @@ public class TestShopSite {
             driver.manage().window().maximize();
            // Thread.sleep(300);
             //Adding page objects
-            FirstPage firstPage = new FirstPage(driver);
+            GetPage firstPage = new GetPage(driver);
             firstPage.waiter();
 
           // WebElement button = firstPage.find_element_by_xpat("//a[contains(text(),'My Wishlist')]");
@@ -67,7 +66,7 @@ public class TestShopSite {
             WebElement elementxpath6 = firstPage.find_element_by_xpat("//a[contains(text(),'My Account')]");
 
             elementxpath6.click();
-            CreateNewUser user1 = new CreateNewUser(firstPage,"andrei77","an@mail.ru","1234@5qwe12");
+            CreateNewUser user1 = new CreateNewUser(driver,"andrei77","an@mail.ru","1234@5qwe12");
 
       }
 

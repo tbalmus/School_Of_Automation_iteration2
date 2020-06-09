@@ -1,30 +1,16 @@
 package com.demoqa.shop;
 
-import org.openqa.selenium.WebElement;
-
-import static com.demoqa.shop.ControlDeclaration.*;
+import org.openqa.selenium.WebDriver;
 
 public class CreateNewUser {
-    private WebElement usernameFielde;
-    private WebElement emailFielde;
-    private  WebElement passwordFielde;
-    private  WebElement accountRegisterButton;
-
-    public CreateNewUser (FirstPage page, String username,String email, String password) {
-        page.find_element_by_xpat(usernameField).sendKeys(username);
-        page.find_element_by_xpat(emailField).sendKeys(email);
-        page.find_element_by_xpat(passwordField).sendKeys(password);
-       // page.find_element_by_xpat(registerButton).click();
 
 
+    public CreateNewUser(WebDriver driver, String username, String email, String password) {
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.field_username.sendKeys(username);
+        loginPage.field_username.sendKeys(email);
+        loginPage.field_username.sendKeys(password);
+        // page.find_element_by_xpat(registerButton).click();
     }
 
-    @Override
-    public String toString() {
-        return "CreateNewUser{" +
-                "usernameFielde=" + usernameFielde +
-                ", emailFielde=" + emailFielde +
-                ", passwordFielde=" + passwordFielde +
-                '}';
-    }
 }
